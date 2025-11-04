@@ -37,6 +37,9 @@
 }
 
 .nav__brand {
+    background: none;
+    border: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -181,3 +184,4 @@
     text-align: center;
     font-weight: 700;
 }
+

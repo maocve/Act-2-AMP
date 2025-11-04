@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useCart } from "../context/CartContext.jsx";
 import carritoIcono from "../assets/icono-carrito.svg";
+import logoNexus from "../assets/logo-nexus.svg"; // ⬅️ IMPORTANTE
 import "./navbar.css";
 
 export default function Navbar() {
@@ -14,9 +15,9 @@ export default function Navbar() {
     return (
         <header className="nav">
             <div className="nav__inner container">
-                <div className="nav__brand" onClick={() => navigate("/")}>
-                    <img src="./src/assets/logo-nexus.svg" alt="Nexus" className="nav__logo" />
-                </div>
+                <button className="nav__brand" onClick={() => navigate("/")} aria-label="Inicio">
+                    <img src={logoNexus} alt="Nexus" className="nav__logo" />
+                </button>
 
                 <nav className="nav__links">
                     <NavLink to="/" className={linkClass} end>Inicio</NavLink>
@@ -28,10 +29,7 @@ export default function Navbar() {
                             <NavLink to="/perfil" className={linkClass}>Perfil</NavLink>
                             <button
                                 className="nav__btn"
-                                onClick={() => {
-                                    logout();
-                                    navigate("/login");
-                                }}
+                                onClick={() => { logout(); navigate("/login"); }}
                             >
                                 Cerrar sesión
                             </button>
